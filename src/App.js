@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Navigation from './components/Navigation';
+/*import Navigation from './components/Navigation';*/
 import TodoForm from './components/TodoForm';
 import {todos} from './todos.json';
 console.log(todos);
@@ -14,10 +14,12 @@ class App extends Component {
      
     };
     this.handleAddTodo=this.handleAddTodo.bind(this);
+
   }
-  handleAddTodo(todo){
-    this.state({
-      todos: [...this.todos, todo]
+
+handleAddTodo(todo){
+    this.setState({
+      todos: [...this.state.todos, todo]
     })
   }
 
@@ -27,7 +29,7 @@ const todos=this.state.todos.map((todo, i) => {
       return(
         
       
-        <div className='col-md-4'>
+        <div className='col-md-4' key={i} >
 
         <div className='card mt-4'>
         <div className='card-header'>
@@ -64,6 +66,7 @@ const todos=this.state.todos.map((todo, i) => {
        <span className="badge badge-pill badge-light ml-2">
        {this.state.todos.lenght}
        
+
        </span>  
      
       </a>

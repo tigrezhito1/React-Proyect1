@@ -11,6 +11,7 @@ class TodoForm extends Component {
 		};
 		this.handleInput=this.handleInput.bind(this);
 		this.handleSubmit=this.handleSubmit.bind(this);
+
 	}
 	handleInput(e){ 
 	// console.log(e.target.value, e.target.name);
@@ -20,20 +21,20 @@ class TodoForm extends Component {
 
 	})
 
-	console.log(this.state);
+	console.log('estadosss', this.state);
 	}
 
 	handleSubmit(e){
 		e.preventDefault();
 		this.props.onAddTodo(this.state);
-		console.log(this.state)
-		console.log('envindo')
+		console.log(this.state);
+		console.log('envindo... los datos');
 	}
 	render() {
     return (
 
     	<div className="card ">
-    	<form className="card-body" onSubmit="{this.handleSubmit}">
+    	<form className="card-body" onSubmit={this.handleSubmit}>
     		<div className="form-group">
     		<input
     		type="text"
@@ -65,13 +66,13 @@ class TodoForm extends Component {
     		<select 
     			name="priority"
     			className="form-control"
-    			onChange={this.handleInput}  >
+    			onChange={this.handleInput}>
     			<option>Low</option>
     			<option>Mediun</option>
     			<option>Hight</option>
     		</select>
     		</div>
-    		<buttom type="submit" className="btn btn-primary" >Guardar</buttom>
+    		<button type="submit" className="btn btn-primary">Guardar</button>
 
 
 		</form>
