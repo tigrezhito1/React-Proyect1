@@ -23,13 +23,25 @@ handleAddTodo(todo){
     })
   }
 
+removeTodo(index){
+  console.log(index);
+  if (window.confirm('ESTAS SEGURO DE  QUERERLO ELIMINARLO')){
+
+    this.setState({
+    todos: this.state.todos.filter((e, i) =>{
+      return i !== index
+    })
+  })
+  }
+}
+  
 render() {
     
 const todos=this.state.todos.map((todo, i) => {
       return(
         
       
-        <div className='col-md-4' key={i} >
+        <div className='col-md-4' Key={i} >
 
         <div className='card mt-4'>
         <div className='card-header'>
@@ -43,7 +55,10 @@ const todos=this.state.todos.map((todo, i) => {
           <p>{todo.description}</p>
           <p>{todo.responsible}</p>
         </div>
+          <div className="card-footer">
+          <button type="button" class="btn btn-primary" onClick={this.removeTodo.bind(this, i)}> Delete</button>
 
+          </div>
         </div>
 
 
