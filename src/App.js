@@ -2,11 +2,16 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+
 // data
 import { todos } from './todos.json';
 
 // subcomponents
 import TodoForm from './components/TodoForm';
+import Inicio from './components/Inicio';
+import BasicExample from './components/BasicExample';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
 
 class App extends Component {
   constructor() {
@@ -16,6 +21,10 @@ class App extends Component {
     }
     this.handleAddTodo = this.handleAddTodo.bind(this);
   }
+
+
+
+
 
   removeTodo(index) {
     this.setState({
@@ -68,7 +77,14 @@ class App extends Component {
               {this.state.todos.length}
             </span>
           </a>
+
+              <button
+                className="btn btn-danger" href="/Inicio/"    >
+                Click
+              </button>
+
         </nav>
+
 
         <div className="container">
           <div className="row mt-4">
@@ -85,6 +101,7 @@ class App extends Component {
             </div>
           </div>
         </div>
+        <BasicExample/>
       </div>
     );
   }
