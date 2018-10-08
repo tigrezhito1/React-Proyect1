@@ -43,25 +43,22 @@ class App extends Component {
   render() {
     const todos = this.state.todos.map((todo, i) => {
       return (
-        <div className="col-md-4" key={i}>
-          <div className="card mt-4">
-            <div className="card-title text-center">
-              <h3>{todo.title}</h3>
-              <span className="badge badge-pill badge-danger ml-2">
-                {todo.priority}
-              </span>
-            </div>
-            <div className="card-body">
-              {todo.description}
-            </div>
-            <div className="card-footer">
-              <button
-                className="btn btn-danger"
-                onClick={this.removeTodo.bind(this, i)}>
-                Delete
-              </button>
-            </div>
-          </div>
+        <div className="col-md-12" key={i}>
+          
+           
+    <table class="table">
+      <tr class="table-info">
+      <th scope="col">1</th>
+      <th scope="col">{todo.title}</th>
+      <th scope="col">{todo.priority}</th>
+      <th scope="col">{todo.description}</th>
+      <th scope="col">{todo.responsible}</th>
+      <th scope="col"><button className="btn btn-danger" onClick={this.removeTodo.bind(this, i)}>X</button></th>
+      </tr> 
+</table>                     
+
+        
+
         </div>
       )
     });
@@ -95,9 +92,22 @@ class App extends Component {
             </div>
 
             <div className="col-md-8">
+            <table class="table table-sm table-dark">
+            <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Titulo</th>
+      <th scope="col">Prioridad</th>
+      <th scope="col">Description</th>
+      <th scope="col">Responsable</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+            </table>
               <div className="row">
                 {todos}
               </div>
+
             </div>
           </div>
         </div>
